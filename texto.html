@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .country-list li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+<body>
+  <ol id="country-list">
+    <li>
+      <button class="btn-up">Subir</button>
+      <span>Argentina</span>
+      <button class="btn-down">Bajar</button>
+    </li>
+    <li>
+      <button class="btn-up">Subir</button>
+      <span>Brasil</span>
+      <button class="btn-down">Bajar</button>
+    </li>
+    <li>
+      <button class="btn-up">Subir</button>
+      <span>Chile</span>
+      <button class="btn-down">Bajar</button>
+    </li>
+    <li>
+      <button class="btn-up">Subir</button>
+      <span>Colombia</span>
+      <button class="btn-down">Bajar</button>
+    </li>
+    <li>
+      <button class="btn-up">Subir</button>
+      <span>España</span>
+      <button class="btn-down">Bajar</button>
+    </li>
+  </ol>
+
+  <script>
+    const btnsUp = document.querySelectorAll('.btn-up');
+    const btnsDown = document.querySelectorAll('.btn-down');
+    const countryList = document.getElementById('country-list');
+
+    btnsUp.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const listItem = btn.parentNode;
+        const prevItem = listItem.previousElementSibling;
+        if (prevItem) {
+          countryList.insertBefore(listItem, prevItem);
+        }
+      });
+    });
+
+    btnsDown.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const listItem = btn.parentNode;
+        const nextItem = listItem.nextElementSibling;
+        if (nextItem) {
+          countryList.insertBefore(nextItem, listItem);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
